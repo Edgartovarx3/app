@@ -20,3 +20,15 @@ flutter:
   uses-material-design: true
   assets:
     - images/lake.jpg
+    - images/Fondo.png
+
+                
+fonts:
+  - family: Amiko
+
+  - asset: assets/fonts/Amiko-Regular.ttf
+  - asset: assets/fonts/Amiko-Bold.ttf
+  - weight: 400 
+  - weight: 700
+      
+          
