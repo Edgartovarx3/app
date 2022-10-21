@@ -9,6 +9,7 @@ class Ventana1 extends StatelessWidget {
 
   List<String> Cursos = ["Japonés", "Inglés", "Francés", "Español"];
   Widget build(BuildContext context) {
+    NavBar.cont = 0;
     return Container(
         child: Stack(children: <Widget>[
       NavBar.WidgetFondo(),
@@ -17,10 +18,7 @@ class Ventana1 extends StatelessWidget {
           appBar: AppBar(title: Text(title), actions: <Widget>[
             IconButton(
               icon: const Icon(Icons.person),
-              onPressed: () {
-
-                
-              },
+              onPressed: () {},
             )
           ]),
           body: ListView(

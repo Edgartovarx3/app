@@ -2,6 +2,7 @@ import 'package:app/Config.dart';
 import 'package:app/Ventana1.dart';
 import 'package:flutter/material.dart';
 import 'Ventana2.dart';
+import 'Config.dart';
 
 class NavBar extends StatelessWidget {
   @override
@@ -223,6 +224,68 @@ class NavBar extends StatelessWidget {
                 fontWeight: FontWeight.normal,
                 height: 1),
           )),
+    ]));
+  }
+
+  static ModelConfig(BuildContext context) {
+    return Container(
+        child: Stack(children: <Widget>[
+      Positioned(
+          top: 50,
+          left: 28,
+          child: Container(
+              width: 330,
+              height: 500,
+              decoration: const BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                      color: Color.fromRGBO(0, 0, 0, 0.25),
+                      offset: Offset(0, 4),
+                      blurRadius: 4)
+                ],
+                color: Color.fromRGBO(217, 217, 217, 1),
+              ))),
+    ]));
+  }
+
+  static double cont = 0;
+  static Butons(BuildContext context, String ConfigText) {
+    cont++;
+
+    if (cont == Config().Configtext.length) {
+      cont == 0;
+    }
+    return Container(
+        child: Stack(children: <Widget>[
+      Positioned(
+          top: 55 * cont,
+          left: 32,
+          child: Container(
+            width: 320,
+            height: 50,
+            child: ElevatedButton(
+              child: Text(
+                ConfigText,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    color: Color.fromARGB(255, 170, 0, 0),
+                    fontFamily: 'Amiko',
+                    fontSize: 16,
+                    letterSpacing:
+                        0 /*percentages not used in flutter. defaulting to zero*/,
+                    fontWeight: FontWeight.normal,
+                    height: 1),
+              ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => BarWidget()),
+                );
+              },
+              style: ElevatedButton.styleFrom(
+                  primary: Color.fromARGB(228, 255, 255, 255)),
+            ),
+          ))
     ]));
   }
 }

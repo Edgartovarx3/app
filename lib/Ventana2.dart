@@ -4,7 +4,8 @@ import 'NavBar.dart';
 class BarWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // Figma Flutter Generator HomeWidget - FRAME
+    NavBar.cont = 0;
+
     return Container(
         child: Stack(children: <Widget>[
       NavBar.WidgetFondo(),
@@ -13,9 +14,7 @@ class BarWidget extends StatelessWidget {
           appBar: AppBar(title: const Text("Visualizacion"), actions: <Widget>[
             IconButton(
               icon: const Icon(Icons.person),
-              onPressed: () {
-                
-              },
+              onPressed: () {},
             )
           ]),
           body: ListView(
