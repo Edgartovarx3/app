@@ -115,6 +115,14 @@ class NavBar extends StatelessWidget {
                       color: Color.fromRGBO(84, 113, 214, 1),
                     ),
                     child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => BarWidget()),
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                          primary: Color.fromRGBO(84, 113, 214, 1)),
                       child: Text(
                         'Suscribirse',
                         textAlign: TextAlign.center,
@@ -127,14 +135,6 @@ class NavBar extends StatelessWidget {
                             fontWeight: FontWeight.normal,
                             height: 1),
                       ),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => BarWidget()),
-                        );
-                      },
-                      style: ElevatedButton.styleFrom(
-                          primary: Color.fromRGBO(84, 113, 214, 1)),
                     ),
                   ),
                 ),
@@ -264,18 +264,6 @@ class NavBar extends StatelessWidget {
             width: 320,
             height: 50,
             child: ElevatedButton(
-              child: Text(
-                ConfigText,
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                    color: Color.fromARGB(255, 170, 0, 0),
-                    fontFamily: 'Amiko',
-                    fontSize: 16,
-                    letterSpacing:
-                        0 /*percentages not used in flutter. defaulting to zero*/,
-                    fontWeight: FontWeight.normal,
-                    height: 1),
-              ),
               onPressed: () {
                 Navigator.push(
                   context,
@@ -284,8 +272,25 @@ class NavBar extends StatelessWidget {
               },
               style: ElevatedButton.styleFrom(
                   primary: Color.fromARGB(228, 255, 255, 255)),
+              child: Text(
+                ConfigText,
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                    color: Color.fromARGB(255, 170, 0, 0),
+                    fontFamily: 'Amiko',
+                    fontSize: 16,
+                    letterSpacing:
+                        0 /*percentages not used in flutter. defaulting to zero*/,
+                    fontWeight: FontWeight.normal,
+                    height: 1),
+              ),
             ),
           ))
     ]));
   }
 }
+
+//fLutter  pub get -Obtener paquetes
+//flutter run -ejecuta el proyecto
+//flutter git clone - clonar repositorio
+// 

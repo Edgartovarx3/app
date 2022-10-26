@@ -24,7 +24,7 @@ class Ventana1 extends StatelessWidget {
           body: ListView(
             children: <Widget>[
               for (int i = 0; i < Cursos.length; i++)
-                Container(
+               Container(
                     width: 350.0,
                     height: 350.0,
                     child: NavBar().IdiomasWidget(context, Cursos[i])),

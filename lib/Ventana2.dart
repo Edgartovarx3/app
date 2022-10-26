@@ -19,7 +19,7 @@ class BarWidget extends StatelessWidget {
           ]),
           body: ListView(
             children: <Widget>[
-              for (int i = 0; i < 4; i++)
+              for (int i = 0; i < 10000; i++)
                 Container(
                     width: 308, height: 150, child: NavBar.WidgetNivelLista(i)),
             ],
