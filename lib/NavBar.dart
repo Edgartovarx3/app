@@ -1,8 +1,10 @@
 import 'package:app/Config.dart';
+import 'package:app/InicioSesion.dart';
 import 'package:app/Ventana1.dart';
 import 'package:flutter/material.dart';
 import 'Ventana2.dart';
-import 'Config.dart';
+import 'Registro.dart';
+import 'funciones.dart';
 
 class NavBar extends StatelessWidget {
   @override
@@ -14,6 +16,7 @@ class NavBar extends StatelessWidget {
     ])));
   }
 
+// ignore: non_constant_identifier_names
   static WidgetFondo() {
     return Container(
         decoration: const BoxDecoration(
@@ -22,6 +25,7 @@ class NavBar extends StatelessWidget {
     ));
   }
 
+// ignore: non_constant_identifier_names
   IdiomasWidget(BuildContext context, String Titulo) {
     // Figma Flutter Generator Idioma3Widget - GROUP
     return Container(
@@ -123,7 +127,7 @@ class NavBar extends StatelessWidget {
                       },
                       style: ElevatedButton.styleFrom(
                           primary: Color.fromRGBO(84, 113, 214, 1)),
-                      child: Text(
+                      child: const Text(
                         'Suscribirse',
                         textAlign: TextAlign.center,
                         style: TextStyle(
@@ -185,6 +189,7 @@ class NavBar extends StatelessWidget {
         ]));
   }
 
+// ignore: non_constant_identifier_names
   static WidgetNivelLista(int niveles) {
     return Container(
         child: Stack(children: <Widget>[
@@ -194,7 +199,7 @@ class NavBar extends StatelessWidget {
           child: Container(
               width: 310,
               height: 150,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(3),
                   topRight: Radius.circular(3),
@@ -215,7 +220,7 @@ class NavBar extends StatelessWidget {
           child: Text(
             'Nivel ' + (niveles + 1).toString(),
             textAlign: TextAlign.center,
-            style: TextStyle(
+            style: const TextStyle(
                 color: Color.fromRGBO(0, 0, 0, 1),
                 fontFamily: 'Amiko',
                 fontSize: 20,
@@ -227,6 +232,7 @@ class NavBar extends StatelessWidget {
     ]));
   }
 
+  // ignore: non_constant_identifier_names
   static ModelConfig(BuildContext context) {
     return Container(
         child: Stack(children: <Widget>[
@@ -288,9 +294,386 @@ class NavBar extends StatelessWidget {
           ))
     ]));
   }
+
+  FormularioRegistro(BuildContext context) {
+    // Figma Flutter Generator CrearcuentaWidget - GROUP
+    return Container(
+        width: 1200,
+        height: 800,
+        child: Stack(children: <Widget>[
+          const Positioned(
+              top: 150,
+              left: 100,
+              child: Text(
+                'Crear Cuenta',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    color: Color.fromRGBO(0, 0, 0, 1),
+                    fontFamily: 'Amiko',
+                    fontSize: 32,
+                    letterSpacing:
+                        0 /*percentages not used in flutter. defaulting to zero*/,
+                    fontWeight: FontWeight.normal,
+                    height: 1),
+              )),
+          const Positioned(
+              top: 525,
+              left: 150,
+              child: Text(
+                'ó',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    color: Color.fromRGBO(0, 0, 0, 1),
+                    fontFamily: 'Inter',
+                    fontSize: 20,
+                    letterSpacing:
+                        0 /*percentages not used in flutter. defaulting to zero*/,
+                    fontWeight: FontWeight.normal,
+                    height: 1),
+              )),
+          Positioned(
+              top: 600,
+              left: 82,
+              child: Container(
+                  width: 197,
+                  height: 62,
+                  child: Stack(children: <Widget>[
+                    Positioned(
+                        top: 500,
+                        left: 50,
+                        child: Container(
+                            width: 197,
+                            height: 62,
+                            decoration: const BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(11),
+                                topRight: Radius.circular(11),
+                                bottomLeft: Radius.circular(11),
+                                bottomRight: Radius.circular(11),
+                              ),
+                              color: Color.fromRGBO(
+                                  255, 255, 255, 0.36000001430511475),
+                            ))),
+                    const Positioned(
+                        top: 200, left: 150, child: Icon(Icons.facebook)),
+                    const Positioned(
+                        top: 200, left: 190, child: Icon(Icons.facebook)),
+                    const Positioned(
+                        top: 200, left: 170, child: Icon(Icons.facebook)),
+                  ]))),
+          Positioned(
+              top: 507,
+              left: 37,
+              child: Container(
+                  width: 600,
+                  height: 100,
+                  child: Stack(children: const <Widget>[
+                    //  Positioned(top: 0, left: 0, child: Icon(Icons.facebook)),
+                  ]))),
+          Positioned(
+              top: 74,
+              left: 12,
+              child: Container(
+                  width: 1200,
+                  height: 800,
+                  child: Stack(children: <Widget>[
+                    const Positioned(
+                        top: 20,
+                        left: 0,
+                        child: Divider(
+                            color: Color.fromRGBO(0, 0, 0, 1), thickness: 0.5)),
+                    const Positioned(
+                        top: 91,
+                        left: 0,
+                        child: Divider(
+                            color: Color.fromRGBO(0, 0, 0, 1), thickness: 0.5)),
+                    const Positioned(
+                        top: 162,
+                        left: 0,
+                        child: Divider(
+                            color: Color.fromRGBO(0, 0, 0, 1), thickness: 0.5)),
+                    const Positioned(
+                        top: 121,
+                        left: 0,
+                        child: Divider(
+                            color: Color.fromRGBO(0, 0, 0, 1), thickness: 0.5)),
+                    const Positioned(
+                        top: 55,
+                        left: 0,
+                        child: Divider(
+                            color: Color.fromRGBO(0, 0, 0, 1), thickness: 0.5)),
+                    Positioned(
+                        top: 350,
+                        left: 60,
+                        child: ConstrainedBox(
+                            constraints:
+                                BoxConstraints.tight(const Size(200, 50)),
+                            child: TextFormField(
+                              decoration: const InputDecoration(
+                                labelText: 'Confirma el correo electronico',
+                                hintText:
+                                    'Vuelve a ingresar tu correo electronico',
+                              ),
+                              onSaved: (String? confirmacion) {
+                                funciones()
+                                    .SetConfirmCorreo(confirmacion.toString());
+                              },
+                              validator: (String? value) {
+                                return (value != null)
+                                    ? 'Do not use the @ char.'
+                                    : null;
+                              },
+                              textAlign: TextAlign.left,
+                              style: const TextStyle(
+                                  color: Color.fromARGB(159, 0, 0, 0),
+                                  fontFamily: 'Berlin Sans FB',
+                                  fontSize: 13,
+                                  letterSpacing:
+                                      0 /*percentages not used in flutter. defaulting to zero*/,
+                                  fontWeight: FontWeight.normal,
+                                  height: 1),
+                            ))),
+                    Positioned(
+                        top: 310,
+                        left: 60,
+                        child: ConstrainedBox(
+                            constraints:
+                                BoxConstraints.tight(const Size(200, 50)),
+                            child: TextFormField(
+                              decoration: const InputDecoration(
+                                labelText: 'Correo electronico',
+                                hintText: 'Ingresa tu correo electronico',
+                              ),
+                              onSaved: (String? correo) {
+                                funciones().setCorreo(correo.toString());
+                              },
+                              validator: (String? value) {
+                                return (value != null && value.contains('@'))
+                                    ? 'Do not use the @ char.'
+                                    : null;
+                              },
+                              textAlign: TextAlign.left,
+                              style: const TextStyle(
+                                  color: Color.fromARGB(159, 0, 0, 0),
+                                  fontFamily: 'Berlin Sans FB',
+                                  fontSize: 13,
+                                  letterSpacing:
+                                      0 /*percentages not used in flutter. defaulting to zero*/,
+                                  fontWeight: FontWeight.normal,
+                                  height: 1),
+                            ))),
+                    Positioned(
+                        top: 390,
+                        left: 60,
+                        child: ConstrainedBox(
+                            constraints:
+                                BoxConstraints.tight(const Size(200, 50)),
+                            child: TextFormField(
+                              decoration: const InputDecoration(
+                                labelText: 'Contraseña',
+                                hintText: 'Escribe la contraseña',
+                              ),
+                              onSaved: (String? pass) {
+                                funciones().setContrasenia(pass.toString());
+                              },
+                              obscureText: true,
+                              validator: (String? value) {
+                                return (value != null)
+                                    ? 'Do not use the @ char.'
+                                    : null;
+                              },
+                              textAlign: TextAlign.left,
+                              style: const TextStyle(
+                                  color: Color.fromARGB(159, 0, 0, 0),
+                                  fontFamily: 'Berlin Sans FB',
+                                  fontSize: 13,
+                                  letterSpacing:
+                                      0 /*percentages not used in flutter. defaulting to zero*/,
+                                  fontWeight: FontWeight.normal,
+                                  height: 1),
+                            ))),
+                    Positioned(
+                        top: 115,
+                        left: 0,
+                        child: Container(
+                            width: 800,
+                            height: 600,
+                            child: Stack(children: const <Widget>[
+                              Positioned(
+                                  top: 295,
+                                  left: 230,
+                                  child: Icon(Icons.remove_red_eye_outlined)),
+                            ]))),
+                    Positioned(
+                        top: 210,
+                        left: 60,
+                        child: ConstrainedBox(
+                            constraints:
+                                BoxConstraints.tight(const Size(200, 50)),
+                            child: TextFormField(
+                              decoration: const InputDecoration(
+                                labelText: 'Nombre',
+                                hintText: 'Ingresa el nombre',
+                              ),
+                              onSaved: (String? nombre) {
+                                funciones().setNombr(nombre.toString());
+                              },
+                              validator: (String? value) {
+                                return (value != null && value.contains('@'))
+                                    ? 'Do not use the @ char.'
+                                    : null;
+                              },
+                              textAlign: TextAlign.left,
+                              style: const TextStyle(
+                                  color: Color.fromARGB(159, 0, 0, 0),
+                                  fontFamily: 'Berlin Sans FB',
+                                  fontSize: 13,
+                                  letterSpacing:
+                                      0 /*percentages not used in flutter. defaulting to zero*/,
+                                  fontWeight: FontWeight.normal,
+                                  height: 1),
+                            ))),
+                    Positioned(
+                        top: 260,
+                        left: 60,
+                        child: ConstrainedBox(
+                            constraints:
+                                BoxConstraints.tight(const Size(200, 50)),
+                            child: TextFormField(
+                              decoration: const InputDecoration(
+                                labelText: 'Apellidos',
+                                hintText: 'Ingresa tus apellidos',
+                              ),
+                              // ignore: non_constant_identifier_names
+                              onSaved: (String? Apellido) {
+                                funciones().setApellidos(Apellido.toString());
+                              },
+                              validator: (String? value) {
+                                return (value != null && value.contains('@'))
+                                    ? 'Do not use the @ char.'
+                                    : null;
+                              },
+                              textAlign: TextAlign.left,
+                              style: const TextStyle(
+                                  color: Color.fromARGB(159, 0, 0, 0),
+                                  fontFamily: 'Berlin Sans FB',
+                                  fontSize: 13,
+                                  letterSpacing:
+                                      0 /*percentages not used in flutter. defaulting to zero*/,
+                                  fontWeight: FontWeight.normal,
+                                  height: 1),
+                            ))),
+                    Positioned(
+                        top: 480,
+                        left: 110,
+                        child: ElevatedButton(
+                          onPressed: () {
+                            if (funciones.Verificacion()) {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Ventana1()),
+                              );
+                            } else {}
+                          },
+                          style: ElevatedButton.styleFrom(
+                              primary: const Color.fromRGBO(84, 113, 214, 1)),
+                          child: const Text(
+                            'Registrarme',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                color: Color.fromRGBO(255, 255, 255, 1),
+                                fontFamily: 'Amiko',
+                                fontSize: 16,
+                                letterSpacing:
+                                    0 /*percentages not used in flutter. defaulting to zero*/,
+                                fontWeight: FontWeight.normal,
+                                height: 1),
+                          ),
+                        )),
+                  ]))),
+        ]));
+  }
+
+  Bienvenida(BuildContext context) {
+    return Container(
+        width: 1200,
+        height: 800,
+        child: Stack(children: <Widget>[
+          const Positioned(
+              top: 150,
+              left: 100,
+              child: Text(
+                'Bienvenido',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    color: Color.fromARGB(255, 0, 0, 0),
+                    fontFamily: 'Amiko',
+                    fontSize: 32,
+                    letterSpacing:
+                        5 /*percentages not used in flutter. defaulting to zero*/,
+                    fontWeight: FontWeight.normal,
+                    height: 1),
+              )),
+
+          Positioned(
+              top: 400,
+              left: 135,
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Registro()),
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                    primary: const Color.fromRGBO(84, 113, 214, 1)),
+                child: const Text(
+                  'Registrarme',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      color: Color.fromRGBO(255, 255, 255, 1),
+                      fontFamily: 'Amiko',
+                      fontSize: 16,
+                      letterSpacing:
+                          0 /*percentages not used in flutter. defaulting to zero*/,
+                      fontWeight: FontWeight.normal,
+                      height: 1),
+                ),
+              )),
+
+//Boton 1 y 2
+
+          Positioned(
+              top: 325,
+              left: 130,
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => InicioSesion()),
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                    primary: const Color.fromRGBO(84, 113, 214, 1)),
+                child: const Text(
+                  'Iniciar Sesion',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      color: Color.fromRGBO(255, 255, 255, 1),
+                      fontFamily: 'Amiko',
+                      fontSize: 16,
+                      letterSpacing:
+                          0 /*percentages not used in flutter. defaulting to zero*/,
+                      fontWeight: FontWeight.normal,
+                      height: 1),
+                ),
+              )),
+        ]));
+  }
 }
 
 //fLutter  pub get -Obtener paquetes
 //flutter run -ejecuta el proyecto
 //flutter git clone - clonar repositorio
-// 
+//

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'NavBar.dart';
+import 'Perfil.dart';
 
 class BarWidget extends StatelessWidget {
   @override
@@ -14,7 +15,12 @@ class BarWidget extends StatelessWidget {
           appBar: AppBar(title: const Text("Visualizacion"), actions: <Widget>[
             IconButton(
               icon: const Icon(Icons.person),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Perfil()),
+                );
+              },
             )
           ]),
           body: ListView(

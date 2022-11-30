@@ -15,12 +15,15 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
+ 
 
 flutter:
   uses-material-design: true
   assets:
     - images/lake.jpg
     - images/Fondo.png
+    - images/Ndice1.png
+    - images/Ellipse18.png
 
                 
 fonts:
@@ -30,5 +33,11 @@ fonts:
   - asset: assets/fonts/Amiko-Bold.ttf
   - weight: 400 
   - weight: 700
+
+  - family: BerlinSansFB
+  - asset: assets/fonts/BerlinSansFB-Regular.ttf
+    weight: 400
       
+          
+         
           

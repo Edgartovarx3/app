@@ -1,13 +1,14 @@
-import 'package:app/Ventana2.dart';
+
+
 import 'package:flutter/material.dart';
 import 'NavBar.dart';
-import 'Ventana2.dart';
+import 'Perfil.dart';
 
 class Ventana1 extends StatelessWidget {
   @override
   String title = "Cursos";
 
-  List<String> Cursos = ["Japonés", "Inglés", "Francés", "Español"];
+  List<String> Cursos = ["Japonés", "Inglés", "Francés", "Español", ""];
   Widget build(BuildContext context) {
     NavBar.cont = 0;
     return Container(
@@ -18,13 +19,18 @@ class Ventana1 extends StatelessWidget {
           appBar: AppBar(title: Text(title), actions: <Widget>[
             IconButton(
               icon: const Icon(Icons.person),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Perfil()),
+                );
+              },
             )
           ]),
           body: ListView(
             children: <Widget>[
               for (int i = 0; i < Cursos.length; i++)
-               Container(
+                Container(
                     width: 350.0,
                     height: 350.0,
                     child: NavBar().IdiomasWidget(context, Cursos[i])),
