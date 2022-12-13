@@ -8,7 +8,9 @@ class Perfil extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    funciones.CrearGenerico();
+    if (funciones().getNombre().isEmpty) {
+      funciones.CrearGenerico();
+    }
     return Container(
         child: Stack(children: <Widget>[
       Container(
@@ -76,10 +78,9 @@ class Perfil extends StatelessWidget {
                         ))),
                 Positioned(
                     top: 243,
-                    left: 45,
+                    left: 110,
                     child: Text(
                       funciones().getNombre(),
-                      textAlign: TextAlign.center,
                       style: const TextStyle(
                           color: Color.fromRGBO(0, 0, 0, 1),
                           fontFamily: 'Inter',
@@ -91,7 +92,7 @@ class Perfil extends StatelessWidget {
                     )),
                 Positioned(
                     top: 306,
-                    left: 46,
+                    left: 80,
                     child: Text(
                       funciones().getApellidos(),
                       textAlign: TextAlign.center,
@@ -106,7 +107,7 @@ class Perfil extends StatelessWidget {
                     )),
                 Positioned(
                     top: 369,
-                    left: 15,
+                    left: 20,
                     child: Text(
                       funciones().getCorreo(),
                       textAlign: TextAlign.center,
@@ -121,7 +122,7 @@ class Perfil extends StatelessWidget {
                     )),
                 Positioned(
                     top: 435,
-                    left: 15,
+                    left: 20,
                     child: Text(
                       funciones().getCorreoConf(),
                       textAlign: TextAlign.center,
@@ -136,7 +137,7 @@ class Perfil extends StatelessWidget {
                     )),
                 const Positioned(
                     top: 502,
-                    left: 15,
+                    left: 70,
                     child: Text(
                       '000 000 000 000',
                       textAlign: TextAlign.center,

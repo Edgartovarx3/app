@@ -1,6 +1,5 @@
 import 'package:app/Bienvenida.dart';
 import 'package:flutter/material.dart';
-import 'NavBar.dart';
 import 'funciones.dart';
 import 'InicioSesion.dart';
 

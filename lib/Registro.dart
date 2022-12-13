@@ -6,12 +6,14 @@ import 'package:flutter/material.dart';
 import 'InicioSesion.dart';
 
 class Registro extends StatelessWidget {
-  TextEditingController correoE = TextEditingController();
-  TextEditingController contrasenia = TextEditingController();
+  final _CorreoE = TextEditingController();
+  final _Contrasenia = TextEditingController();
+  final _Nombre = TextEditingController();
+  final Apellidos = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    funciones.CrearGenerico;
+    // funciones.CrearGenerico;
     return Container(
         child: Stack(children: <Widget>[
       InicioSesion.WidgetFondoSesion(),

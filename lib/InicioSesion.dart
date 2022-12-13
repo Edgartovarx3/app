@@ -1,4 +1,6 @@
 import 'package:app/Bienvenida.dart';
+import 'package:app/services/firebase_crud.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 import 'Ventana1.dart';
 import 'package:flutter/material.dart';
@@ -6,8 +8,10 @@ import 'NavBar.dart';
 import 'Recuperar.dart';
 
 class InicioSesion extends StatelessWidget {
-  TextEditingController correoE = TextEditingController();
-  TextEditingController contrasenia = TextEditingController();
+  TextEditingController _correoE = TextEditingController();
+  TextEditingController _contrasenia = TextEditingController();
+  final Stream<QuerySnapshot> collectionReference =
+      FirebaseCrud.IniciarSesion();
 
   @override
   Widget build(BuildContext context) {
@@ -62,11 +66,11 @@ class InicioSesion extends StatelessWidget {
               child: ConstrainedBox(
                   constraints: BoxConstraints.tight(const Size(200, 50)),
                   child: TextFormField(
+                    controller: _correoE,
                     decoration: const InputDecoration(
                       labelText: 'Correo electronico',
                       hintText: 'Ingresa tu correo electronico',
                     ),
-                    controller: correoE,
                     textAlign: TextAlign.left,
                     style: const TextStyle(
                         color: Color.fromARGB(159, 0, 0, 0),
@@ -83,11 +87,11 @@ class InicioSesion extends StatelessWidget {
               child: ConstrainedBox(
                   constraints: BoxConstraints.tight(const Size(200, 50)),
                   child: TextFormField(
+                    controller: _contrasenia,
                     decoration: const InputDecoration(
                       labelText: 'Contraseña',
                       hintText: 'Ingresa tu contraseña',
                     ),
-                    controller: contrasenia,
                     obscureText: true,
                     textAlign: TextAlign.left,
                     style: const TextStyle(
@@ -120,13 +124,10 @@ class InicioSesion extends StatelessWidget {
           Positioned(
               top: 500,
               left: 120,
+
+              //----------------------------------Boton iniciar sesion---------------------------------
               child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => Ventana1()),
-                  );
-                },
+                onPressed: () {},
                 style: ElevatedButton.styleFrom(
                     primary: const Color.fromRGBO(84, 113, 214, 1)),
                 child: const Text(
@@ -142,6 +143,8 @@ class InicioSesion extends StatelessWidget {
                       height: 1),
                 ),
               ))
+
+          //----------------------------------Fin Boton iniciar sesion---------------------------------
         ]));
   }
 

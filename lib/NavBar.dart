@@ -1,12 +1,18 @@
 import 'package:app/Config.dart';
 import 'package:app/InicioSesion.dart';
 import 'package:app/Ventana1.dart';
+import 'package:app/services/firebase_crud.dart';
 import 'package:flutter/material.dart';
 import 'Ventana2.dart';
 import 'Registro.dart';
 import 'funciones.dart';
 
 class NavBar extends StatelessWidget {
+  final _Nombre = TextEditingController();
+  final _Apellidos = TextEditingController();
+  final _Contrasenia = TextEditingController();
+  final _CorreoE = TextEditingController();
+  final _CorreoE2 = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -409,6 +415,7 @@ class NavBar extends StatelessWidget {
                             constraints:
                                 BoxConstraints.tight(const Size(200, 50)),
                             child: TextFormField(
+                              controller: _CorreoE2,
                               decoration: const InputDecoration(
                                 labelText: 'Confirma el correo electronico',
                                 hintText:
@@ -418,10 +425,10 @@ class NavBar extends StatelessWidget {
                                 funciones()
                                     .SetConfirmCorreo(confirmacion.toString());
                               },
-                              validator: (String? value) {
-                                return (value != null)
-                                    ? 'Do not use the @ char.'
-                                    : null;
+                              validator: (value) {
+                                if (value == null || value.trim().isEmpty) {
+                                  return 'This field is required';
+                                }
                               },
                               textAlign: TextAlign.left,
                               style: const TextStyle(
@@ -440,17 +447,15 @@ class NavBar extends StatelessWidget {
                             constraints:
                                 BoxConstraints.tight(const Size(200, 50)),
                             child: TextFormField(
+                              controller: _CorreoE,
                               decoration: const InputDecoration(
                                 labelText: 'Correo electronico',
                                 hintText: 'Ingresa tu correo electronico',
                               ),
-                              onSaved: (String? correo) {
-                                funciones().setCorreo(correo.toString());
-                              },
-                              validator: (String? value) {
-                                return (value != null && value.contains('@'))
-                                    ? 'Do not use the @ char.'
-                                    : null;
+                              validator: (value) {
+                                if (value == null || value.trim().isEmpty) {
+                                  return 'This field is required';
+                                }
                               },
                               textAlign: TextAlign.left,
                               style: const TextStyle(
@@ -469,18 +474,16 @@ class NavBar extends StatelessWidget {
                             constraints:
                                 BoxConstraints.tight(const Size(200, 50)),
                             child: TextFormField(
+                              controller: _Contrasenia,
                               decoration: const InputDecoration(
                                 labelText: 'Contraseña',
                                 hintText: 'Escribe la contraseña',
                               ),
-                              onSaved: (String? pass) {
-                                funciones().setContrasenia(pass.toString());
-                              },
                               obscureText: true,
-                              validator: (String? value) {
-                                return (value != null)
-                                    ? 'Do not use the @ char.'
-                                    : null;
+                              validator: (value) {
+                                if (value == null || value.trim().isEmpty) {
+                                  return 'This field is required';
+                                }
                               },
                               textAlign: TextAlign.left,
                               style: const TextStyle(
@@ -511,17 +514,15 @@ class NavBar extends StatelessWidget {
                             constraints:
                                 BoxConstraints.tight(const Size(200, 50)),
                             child: TextFormField(
+                              controller: _Nombre,
                               decoration: const InputDecoration(
                                 labelText: 'Nombre',
                                 hintText: 'Ingresa el nombre',
                               ),
-                              onSaved: (String? nombre) {
-                                funciones().setNombr(nombre.toString());
-                              },
-                              validator: (String? value) {
-                                return (value != null && value.contains('@'))
-                                    ? 'Do not use the @ char.'
-                                    : null;
+                              validator: (value) {
+                                if (value == null || value.trim().isEmpty) {
+                                  return 'This field is required';
+                                }
                               },
                               textAlign: TextAlign.left,
                               style: const TextStyle(
@@ -540,18 +541,17 @@ class NavBar extends StatelessWidget {
                             constraints:
                                 BoxConstraints.tight(const Size(200, 50)),
                             child: TextFormField(
+                              controller: _Apellidos,
                               decoration: const InputDecoration(
                                 labelText: 'Apellidos',
                                 hintText: 'Ingresa tus apellidos',
                               ),
                               // ignore: non_constant_identifier_names
-                              onSaved: (String? Apellido) {
-                                funciones().setApellidos(Apellido.toString());
-                              },
-                              validator: (String? value) {
-                                return (value != null && value.contains('@'))
-                                    ? 'Do not use the @ char.'
-                                    : null;
+
+                              validator: (value) {
+                                if (value == null || value.trim().isEmpty) {
+                                  return 'This field is required';
+                                }
                               },
                               textAlign: TextAlign.left,
                               style: const TextStyle(
@@ -567,14 +567,70 @@ class NavBar extends StatelessWidget {
                         top: 480,
                         left: 110,
                         child: ElevatedButton(
-                          onPressed: () {
-                            if (funciones.Verificacion()) {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => Ventana1()),
-                              );
-                            } else {}
+                          onPressed: () async {
+                            if (_Nombre.text.isNotEmpty &&
+                                _Apellidos.text.isNotEmpty &&
+                                _CorreoE.text.isNotEmpty &&
+                                _CorreoE2.text.isNotEmpty &&
+                                _Contrasenia.text.isNotEmpty) {
+                              if (_CorreoE.text.toString() ==
+                                  _CorreoE2.text.toString()) {
+                                var response = await FirebaseCrud.addRegistro(
+                                    Nombre: _Nombre.text,
+                                    Apellidos: _Apellidos.text,
+                                    Contrasenia: _Contrasenia.text,
+                                    CorreoE: _CorreoE.text);
+
+                                if (response.code != 200) {
+                                  showDialog(
+                                      context: context,
+                                      builder: (context) {
+                                        return AlertDialog(
+                                          content:
+                                              Text(response.message.toString()),
+                                        );
+                                      });
+                                } else {
+                                  //este es cuando se logro hacer la insersionde bd
+                                  showDialog(
+                                      context: context,
+                                      builder: (context) {
+                                        return AlertDialog(
+                                          content:
+                                              Text(response.message.toString()),
+                                        );
+                                      });
+                                  funciones().Persona(_Nombre.text, _Apellidos.text, _CorreoE.text,
+                                      _CorreoE2.text, _Contrasenia.text);
+                                  Future.delayed(
+                                      const Duration(seconds: 3),
+                                      () => Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    Ventana1()),
+                                          ));
+                                }
+                              } else {
+                                showDialog(
+                                    context: context,
+                                    builder: (context) {
+                                      return const AlertDialog(
+                                        content:
+                                            Text("Los correos no coindicen"),
+                                      );
+                                    });
+                              }
+                            } else {
+                              showDialog(
+                                  context: context,
+                                  builder: (context) {
+                                    return const AlertDialog(
+                                      content:
+                                          Text("Algunos campos estan vacio!"),
+                                    );
+                                  });
+                            }
                           },
                           style: ElevatedButton.styleFrom(
                               primary: const Color.fromRGBO(84, 113, 214, 1)),
