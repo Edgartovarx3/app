@@ -2,24 +2,22 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import '../models/response.dart';
 
 final FirebaseFirestore _firestore = FirebaseFirestore.instance;
-final CollectionReference _Collection = _firestore.collection('Registro');
+final CollectionReference _Collection = _firestore.collection('Cursos');
 
-class FirebaseCrud {
+class Crud_Productos {
   //Creacion del objeto de la base de datos
-  static Future<Response> addRegistro({
-    required String Nombre,
-    required String Apellidos,
-    required String Contrasenia,
-    required String CorreoE,
+  static Future<Response> addCurso({
+    required String Nivel,
+    required String Titulo,
+    required String Imagen,
   }) async {
     Response response = Response();
     DocumentReference documentReferencer = _Collection.doc();
 
     Map<String, dynamic> data = <String, dynamic>{
-      "Nombre": Nombre,
-      "Apellidos": Apellidos,
-      "Contrasenia": Contrasenia,
-      "CorreoE": CorreoE
+      "Titulo": Titulo,
+      "Nivel": Nivel,
+      "ImagenIdioma": Imagen
     };
 
     var result = await documentReferencer.set(data).whenComplete(() {

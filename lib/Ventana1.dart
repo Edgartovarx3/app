@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'NavBar.dart';
 import 'Perfil.dart';

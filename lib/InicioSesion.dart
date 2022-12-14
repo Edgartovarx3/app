@@ -1,5 +1,5 @@
-import 'package:app/Bienvenida.dart';
-import 'package:app/services/firebase_crud.dart';
+import 'Bienvenida.dart';
+import '/services/firebase_crud.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import 'Ventana1.dart';
@@ -10,8 +10,6 @@ import 'Recuperar.dart';
 class InicioSesion extends StatelessWidget {
   TextEditingController _correoE = TextEditingController();
   TextEditingController _contrasenia = TextEditingController();
-  final Stream<QuerySnapshot> collectionReference =
-      FirebaseCrud.IniciarSesion();
 
   @override
   Widget build(BuildContext context) {

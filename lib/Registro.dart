@@ -1,5 +1,5 @@
-import 'package:app/NavBar.dart';
-import 'package:app/funciones.dart';
+import 'NavBar.dart';
+import 'funciones.dart';
 
 import 'Ventana1.dart';
 import 'package:flutter/material.dart';

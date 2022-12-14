@@ -1,4 +1,4 @@
-import 'package:app/Bienvenida.dart';
+import 'Bienvenida.dart';
 import 'package:flutter/material.dart';
 import 'funciones.dart';
 import 'InicioSesion.dart';

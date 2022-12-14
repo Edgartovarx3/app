@@ -1,7 +1,7 @@
-import 'package:app/Config.dart';
-import 'package:app/InicioSesion.dart';
-import 'package:app/Ventana1.dart';
-import 'package:app/services/firebase_crud.dart';
+import 'Config.dart';
+import 'InicioSesion.dart';
+import 'Ventana1.dart';
+import 'services/firebase_crud.dart';
 import 'package:flutter/material.dart';
 import 'Ventana2.dart';
 import 'Registro.dart';
@@ -600,8 +600,12 @@ class NavBar extends StatelessWidget {
                                               Text(response.message.toString()),
                                         );
                                       });
-                                  funciones().Persona(_Nombre.text, _Apellidos.text, _CorreoE.text,
-                                      _CorreoE2.text, _Contrasenia.text);
+                                  funciones().Persona(
+                                      _Nombre.text,
+                                      _Apellidos.text,
+                                      _CorreoE.text,
+                                      _CorreoE2.text,
+                                      _Contrasenia.text);
                                   Future.delayed(
                                       const Duration(seconds: 3),
                                       () => Navigator.push(

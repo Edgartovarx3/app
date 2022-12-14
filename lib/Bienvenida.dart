@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'InicioSesion.dart';
 
 class Bienvenida extends StatelessWidget {
-  
-
   @override
   Widget build(BuildContext context) {
     return Container(
